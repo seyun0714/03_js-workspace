@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>DOM 노드 실습 미션</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+      }
+      .mission-box {
+        border: 2px solid #007bff;
+        padding: 15px;
+        margin: 10px 0;
+        border-radius: 5px;
+        background: #f8f9fa;
+      }
+      .container {
+        border: 2px solid #333;
+        padding: 15px;
+        margin: 10px;
+        min-height: 200px;
+        background: white;
+      }
+      .item {
+        background: lightblue;
+        padding: 10px;
+        margin: 5px;
+        border: 1px solid blue;
+      }
+      .new-item {
+        background: lightgreen;
+      }
+      .updated-item {
+        background: lightyellow;
+      }
+      button {
+        background: #007bff;
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        border-radius: 3px;
+        cursor: pointer;
+        margin: 5px;
+      }
+      button:hover {
+        background: #0056b3;
+      }
+      .code-section {
+        background: #f8f9fa;
+        padding: 10px;
+        margin: 10px 0;
+        border-left: 4px solid #007bff;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container" class="container">
+      <h3>📋 할 일 목록</h3>
+      <div id="item1">DOM 공부하기</div>
+      <div id="item2">JavaScript 연습하기</div>
+      <div id="item3">프로젝트 만들기</div>
+    </div>
+
+    <div>
+      <h3>🎮 실습 버튼들</h3>
+      <button onclick="createAndAdd()">1. 새 항목 추가 (CREATE & ADD)</button>
+      <button onclick="updateItem()">2. 두 번째 항목 수정 (UPDATE)</button>
+      <button onclick="cloneItem()">3. 첫 번째 항목 복제 (CLONE)</button>
+      <button onclick="replaceItem()">4. 세 번째 항목 교체 (REPLACE)</button>
+    </div>
+
+    <script>
+      // 미션 1: 새 항목 추가
+      function createAndAdd() {
+        /* 
+            여기에 코드를 작성하세요
+            1. createElement로 새 div 요소 생성
+            2. 텍스트 내용을 '새로 추가된 할 일'로 설정
+            3. container에 appendChild로 추가
+        */
+        const $div = document.createElement("div");
+        $div.textContent = "새로 추가된 할 일";
+        document.querySelector("#container").appendChild($div);
+      }
+
+      // 미션 2: 항목 수정
+      function updateItem() {
+        /* 
+            여기에 코드를 작성하세요
+            1. getElementById로 'item2' 요소 찾기
+            2. textContent를 '수정된 JavaScript 공부하기'로 변경
+        */
+        const $item2 = document.getElementById("item2");
+        $item2.textContent = "수정된 JavaScript 공부하기";
+      }
+
+      // 미션 3: 항목 복제
+      function cloneItem() {
+        /* 
+            여기에 코드를 작성하세요
+            1. getElementById로 'item1' 요소 찾기
+            2. cloneNode(true)로 깊은 복제
+            3. 복제본의 textContent를 '복제된 DOM 공부하기'로 변경
+            4. container에 appendChild로 추가
+        */
+        const $copy1 = document.getElementById("item1").cloneNode(true);
+        $copy1.textContent = "복제된 DOM 공부하기";
+        document.querySelector("#container").appendChild($copy1);
+      }
+
+      // 미션 4: 항목 교체
+      function replaceItem() {
+        /* 
+            여기에 코드를 작성하세요
+            1. getElementById로 'item3' 요소 찾기
+            2. createElement로 새 div 요소 생성
+            3. 새 요소의 내용을 '교체된 프로젝트 완성하기'로 설정
+            4. replaceWith 메서드로 기존 item3를 새 요소로 교체
+        */
+        const $item3 = document.getElementById("item3");
+        const $div = document.createElement("div");
+        $div.textContent = "교체된 프로젝트 완성하기";
+        $item3?.replaceWith($div);
+      }
+    </script>
+  </body>
+</html>
