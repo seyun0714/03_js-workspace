@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DOM 노드 프로퍼티 실습 미션</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+        line-height: 1.6;
+      }
+
+      button {
+        background-color: #007bff;
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        border-radius: 5px;
+        cursor: pointer;
+        margin: 5px;
+      }
+      button:hover {
+        background-color: #0056b3;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <h3 id="book-title">JavaScript 완전정복</h3>
+      <p>저자: 김개발</p>
+      <span id="price">25,000원</span>
+      <br />
+      <button onclick="mission()">미션 실행</button>
+    </div>
+
+    <script>
+      function mission() {
+        document.querySelector("#book-title").textContent =
+          "React.js 마스터하기";
+        document.querySelector("#price").textContent = "30,000원";
+      }
+    </script>
+  </body>
+</html>
