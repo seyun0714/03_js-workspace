@@ -20,6 +20,74 @@
 
         console.log(person.getInfo());
       }
+      {
+        // 객체 생성 방법2. 생성자 함수
+        function Person(name, age) {
+          this.name = name;
+          this.age = age;
+        }
+        Person.prototype.getInfo = function () {
+          return `이름: ${this.name}, 나이: ${this.age}`;
+        };
+
+        const p1 = new Person("백종원", 25);
+        const p2 = new Person("나영석", 30);
+        console.log(p1.getInfo());
+        console.log(p2.getInfo());
+
+        console.log("=========================");
+      }
+
+      {
+        // * 객체 생성 방법3. class(ES6) 활용
+
+        class GeneralPerson {
+          getInfo() {
+            return `이름: ${this.name}, 나이: ${this.age}`;
+          }
+        }
+
+        class Person extends GeneralPerson {
+          // 생성자 정의
+          constructor(name, age) {
+            super();
+            this.name = name;
+            this.age = age;
+          }
+        }
+
+        const p1 = new Person("카리나", 20);
+        const p2 = new Person("장원영", 22);
+        console.log(p1);
+        console.log(p2.getInfo());
+
+        // * class 문법을 활용한 상속
+        // Person 클래스(name, age, getInfo())를 상속받는 Student 클래스 정의
+        class Student extends Person {
+          constructor(name, age, school) {
+            // super: 부모 클래스 생성자 호출
+            // 상속된 클래스일 경우, this 를 사용하려면 super() 호출이 필수!
+            super(name, age);
+            this.school = school;
+          }
+          get nameVal() {
+            return this.name;
+          }
+
+          set nameVal(newName) {
+            this.name = newName;
+          }
+
+          getInfo() {
+            return `이름: ${this.name}, 나이: ${this.age}, 학교: ${this.school}`;
+          }
+        }
+
+        const s1 = new Student("박세윤", "25", "세종대학교");
+        console.log(s1.nameVal);
+        s1.nameVal = "박 세 윤";
+        console.log(s1.getInfo());
+      }
     </script>
   </body>
 </html>
