@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      {
+        // 객체 생성 방법1. 객체 리터럴 {}
+        const person = {
+          name: "seyun",
+          age: 20,
+          // 화살표 함수로 만들면 this 바인딩이 되지 않음
+          getInfo: function () {
+            return `이름: ${this.name}, 나이: ${this.age}`;
+          },
+        };
+
+        console.log(person.getInfo());
+      }
+    </script>
+  </body>
+</html>
